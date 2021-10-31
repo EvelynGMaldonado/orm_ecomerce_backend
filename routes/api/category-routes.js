@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     if(dbCategories.length) {
       res.json(dbCategories);
     } else {
-      res.status(404),json({message: "No categories found"});
+      res.status(404).json({message: "No categories found"});
     }
   }). catch(err=>{
     console.log(err);
@@ -68,7 +68,6 @@ router.put('/:id', (req, res) => {
     console.log(err);
     res.json(err);
   })
-
 });
 
 router.delete('/:id', (req, res) => {
