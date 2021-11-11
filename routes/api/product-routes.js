@@ -5,15 +5,22 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
+  console.log("request")
   Product.findAll({
     // be sure to include its associated Category and Tag data
-  include: [Category,ProductTag]
+  include: [
+    Category,
+    {
+      model: Tag,
+      through: ProductTag
+    }
+  ]
 }).then (dbProduct => {
-  if(dbProduct.length) {
+  // if(dbProduct.length) {
     res.json(dbProduct);
-  } else {
-    res.status(404).json({message: "No products found"});
-  }
+  // } else {
+  //   res.status(404).json({message: "No products found"});
+  // }
 }). catch(err=>{
   console.log(err);
   res.status(500).json({message: "an error occurred", err:err});
@@ -25,10 +32,16 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   Product.findOne({
   // be sure to include its associated Category and Tag data 
-  include: [Category, ProductTag],
   where: {
     id:req.body.id
-  }
+  },
+  include: [
+    Category,
+    {
+      model: Tag,
+      through: ProductTag
+    }
+  ]
 }).then(foundProductById => {
   if(!foundProductById) {
     res.status(401).json({message:"incorrect id"});

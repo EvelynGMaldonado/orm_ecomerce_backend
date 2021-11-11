@@ -7,13 +7,16 @@ router.get('/', (req, res) => {
   // find all tags
   Tag.findAll({
   // be sure to include its associated Product data 
-  include: [Product]  
+  include: [{
+    model: Product,
+    through:ProductTag
+  }]  
   }).then (dbTags => {
-    if(dbTags.length) {
+    // if(dbTags.length) {
       res.json(dbTags);
-    } else {
-      res.status(404).json({message: "No categories found"});
-    }
+    // } else {
+    //   res.status(404).json({message: "No categories found"});
+    // }
   }). catch(err=>{
     console.log(err);
     res.status(500).json({message: "an error occurred", err:err});
@@ -24,12 +27,17 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   Tag.findOne({
   // be sure to include its associated Product data 
-  include: [ProductTag],   
+  
   where: {
     id:req.body.id
     // product_id:req.body.product_id,
     // tag_id:req.body.tag_id
-  }
+  },
+  include: [{
+    model:Product,
+    through:ProductTag
+
+  }], 
 }).then(foundTagById => {
   if(!foundTagById) {
     res.status(401).json({message:"incorrect id"});
@@ -41,10 +49,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
-  Tag.create({
-    id:req.body.id,
-    tag_name:req.body.tag_name
-  }).then(newTag => {
+  Tag.create(
+    req.body
+  ).then(newTag => {
     res.json(newTag);
   }).catch(err => {
     console.log(err);
