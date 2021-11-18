@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
   Product.findOne({
   // be sure to include its associated Category and Tag data 
   where: {
-    id:req.body.id
+    id:req.params.id
   },
   include: [
     Category,
@@ -91,14 +91,10 @@ router.post('/', (req, res) => {
 
 // update product
 router.put('/:id', (req, res) => {
+  console.log(req.body);
   // update product data
-  Product.update({
-    id: req.body.id,
-    product_name: req.body.product_name,
-    price: req.body.price,
-    stock: req.body.stock,
-    category_id: req.body.category_id
-  },
+  Product.update(
+    req.body,
   {
     where: {
       id: req.params.id,

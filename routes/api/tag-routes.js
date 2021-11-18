@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Product data 
   
   where: {
-    id:req.body.id
+    id:req.params.id
     // product_id:req.body.product_id,
     // tag_id:req.body.tag_id
   },
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
   Tag.update({
-    id:req.body.id,
+    // id:req.body.id,
     tag_name:req.body.tag_name
   },
   {

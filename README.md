@@ -1,5 +1,49 @@
-# 13 Object-Relational Mapping (ORM): E-Commerce Back End
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.org/licenses/gpl-3.0)
 
+
+# Object-Relational Mapping (ORM): E-Commerce Back End
+
+## Table of contents
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [License](#license)
+5. [Credits](#credits)
+6. [Tests](#tests)
+7. [Questions](#questions)
+8. [More](#more)
+
+<h2 id="description"> Project Description </h2>
+A workout tracker is responsible for collecting and displaying data based on our users prefereces. Our users will be able to view, create and track daily workouts. Our users will reach their fitness goals more quickly by tracking their workout progress.
+
+## Installation 
+Requiered dependencies: express, sequelize, mysql2, dotenv.
+
+## Usage 
+Fitness tracker is an application that accepts user inputs; the user is able to view, create and track daily workouts as well as logging multiple excercises in a workout on a given day along with their specifications such as name, type, weight, sets, repetitions, duration of the excercise and traveled distance(when cardio excercise is selected). When the user visits the dashboard, then their workout progress of the last seven days is displayed.
+
+## License 
+This application is covered under the GNU GPLv3.0 License.
+
+## Credits 
+Evelyn G Maldonado.
+
+## Tests 
+No tests.
+
+## Questions 
+If you have any questions, please contact me to the information listed below.
+
+* Email: evelyn.gmaldonado@gmail.com
+* GitHub: [EvelynGMaldonado](https://github.com/EvelynGMaldonado)
+
+## More
+
+* Link to the GitHub Repository:
+[E-Commerce Back End](https://github.com/EvelynGMaldonado/orm_ecomerce_backend)
+
+* Walkthrough video:
+[E-Commerce Back End]()
 ## Your Task
 
 Internet retail, also known as **e-commerce**, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
@@ -47,12 +91,6 @@ The following animation shows the application's POST, PUT, and DELETE routes for
 ![In Insomnia Core, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./Assets/13-orm-homework-demo-03.gif)
 
 Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia Core.
-
-## Getting Started
-
-You’ll need to use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect your Express.js API to a MySQL database and the [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to store sensitive data.
-
-Use the `schema.sql` file in the `db` folder to create your database with MySQL shell commands. Use environment variables to store sensitive data like your MySQL username, password, and database name.
 
 ### Database Models
 
@@ -236,13 +274,3 @@ This homework is graded based on the following criteria:
 
 * Repository contains quality readme with description and a link to a walkthrough video.
 
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
-
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
